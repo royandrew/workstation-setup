@@ -1,0 +1,50 @@
+repositories:
+  ubuntu:
+    docker: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable"
+    sbt: deb https://repo.scala-sbt.org/scalasbt/debian all main
+    terraform: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ansible_distribution_release}} main"
+  opensuse:
+gpg_key_urls:
+  docker: 
+    url: https://download.docker.com/linux/ubuntu/gpg
+    id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+  terraform:
+    url: https://apt.releases.hashicorp.com/gpg
+    id: null
+gpg_key_servers:
+  sbt: 
+    keyserver: hkps://keyserver.ubuntu.com:443
+    key: 2EE0EA64E40A89B84B2DF73499E82A75642AC823
+packages:
+  ubuntu:
+    - openjdk-11-jdk
+    - docker-ce
+    - docker-ce-cli
+    - sbt
+    - httpie
+    - pass
+    - maven
+    - terraform
+    - mysql-client-core-8.0
+    - docker-compose
+  pip:
+    - semver
+    - awscli
+  opensuse:
+    - git
+    - java-11-openjdk-devel
+    - docker
+    - httpie
+    - password-store
+    - maven
+    - python3-docker-compose
+  macos:
+    - oracle-jdk
+    - httpie
+    - maven
+    - docker
+    - docker-compose
+    - maven
+    - git
+    - docker-credential-helper
+    - 1password

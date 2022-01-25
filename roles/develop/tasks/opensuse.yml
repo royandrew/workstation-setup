@@ -1,0 +1,15 @@
+# - name: Add repositories
+#   zypper_repository:
+#     name: "{{ item.key }}"
+#     repo: "{{ item.value }}"
+#     auto_import_keys: yes
+#     state: present
+#     runrefresh: yes
+#   become: yes
+#   with_dict: "{{ repositories.opensuse }}"
+
+- name: Install development related packages
+  zypper:
+    name: "{{ packages.opensuse }}"
+    state: latest
+  become: yes

@@ -1,0 +1,14 @@
+---
+- include_tasks: ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+
+- include_tasks: opensuse.yml
+  when: ansible_distribution == "openSUSE Leap"
+
+- include_tasks: macos.yml
+  when: ansible_os_family  == "Darwin"
+
+- name: Set up SSH key
+  openssh_keypair:
+    path: "{{ home_dir }}/.ssh/id_rsa"
+  register: default_openssh_keypair

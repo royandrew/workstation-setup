@@ -1,0 +1,13 @@
+- name: Install snap apps
+  snap:
+    name: "{{ packages.snap.regular }}"
+    state: present
+  become: yes
+
+- name: Install classic snap apps
+  snap:
+    name: "{{ item }}"
+    state: present
+    classic: yes
+  with_items: "{{ packages.snap.classic }}"
+  become: yes

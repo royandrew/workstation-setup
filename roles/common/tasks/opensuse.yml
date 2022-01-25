@@ -1,0 +1,12 @@
+- name: Install basic build tools
+  zypper:
+    name: devel_basis
+    type: pattern
+    state: latest
+  become: yes
+
+- name: Install pip3
+  zypper:
+    name: python3-pip
+    state: latest
+  become: yes

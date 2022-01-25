@@ -1,0 +1,53 @@
+---
+  - name: fetch rustup installer
+    uri:
+      url: https://sh.rustup.rs
+      method: GET
+      status_code: "200"
+      return_content: true
+    register: rustup_installer_response
+    when: not (rustup_is_installed | bool)
+
+  - name: install rustup as the user
+    command: sh -s -- -y --no-modify-path
+    args:
+      stdin: "{{ rustup_installer_response.content }}"
+    when: not (rustup_is_installed | bool)
+
+  - name: set default toolchain
+    command: "rustup default stable-x86_64-unknown-linux-gnu"
+    environment:
+      PATH: "{{ rust_user_path }}"
+    when: not (rustup_is_installed | bool)
+    
+  - name: install rls
+    command: rustup component add rls rust-analysis rust-src
+    environment:
+      PATH: "{{ rust_user_path }}"
+    when: not (rls_is_installed | bool)
+
+  # install bash completions
+  - name: create bash completion path
+    file:
+      path: "{{ home_dir }}/.local/share/bash-completion/completions"
+      state: directory
+      owner: "{{ ansible_user_id }}"
+      recurse: true
+
+  - name: generate rustup completions
+    command: "{{ home_dir }}/.cargo/bin/rustup completions bash"
+    environment:
+      PATH: "{{ rust_user_path }}"
+    register: rustup_completions
+    changed_when: false
+
+  - name: write rustup completions
+    copy:
+      content: "{{ rustup_completions.stdout }}"
+      dest: "{{ home_dir }}/.local/share/bash-completion/completions/rustup"
+      mode: "0644"
+      owner: "{{ ansible_user_id }}"
+
+  - name: install bash completions
+    command: rsync -a "{{ home_dir }}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/etc/bash_completion.d/" "{{ home_dir }}/.local/share/bash-completion/completions/"
+    changed_when: false

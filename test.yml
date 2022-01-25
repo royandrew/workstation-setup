@@ -1,0 +1,25 @@
+---
+- hosts:
+    - localhost
+  vars:
+    packages:
+      ubuntu:
+        - openjdk-11-jdk
+        - docker-ce
+        - docker-ce-cli
+        - sbt
+        - code
+        - httpie
+   
+  tasks:
+    - name: Include variables
+      include_vars: 
+       file: roles/develop/vars/main.yml
+    - name: "test1"
+      debug: 
+        msg: "{{item}}"
+      with_items: 
+        - "{{packages.ubuntu}}"
+    - name: "test2"
+      debug: 
+        msg: "{{ansible_distribution_release}}"

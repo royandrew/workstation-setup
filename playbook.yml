@@ -1,0 +1,15 @@
+- hosts: localhost
+  connection: local
+  vars:
+    terraform_version: 1.1.0
+    install_gui_apps: no
+  roles:
+    - role: common
+    - role: snapcraft
+    - role: develop
+    - role: terminal 
+    - role: terraform
+    - role: git
+    - role: gui-apps
+      when: install_gui_apps == "yes"
+    - role: rustlang

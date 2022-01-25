@@ -1,0 +1,8 @@
+---
+  - include_tasks: facts.yml
+
+  - include_tasks: rustup.yml
+
+  - include_tasks: components.yml
+
+  - include_tasks: profile.yml

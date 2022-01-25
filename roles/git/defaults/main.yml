@@ -1,0 +1,11 @@
+---
+
+git_name: Roy Andrew
+git_email: cyto@hellband.co.uk
+git_editor: vim
+
+git:
+  user:
+    name: Roy Andrew
+    email: cyto@hellband.co.uk
+  editor: vim

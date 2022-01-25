@@ -1,0 +1,39 @@
+- name: Import gpg keys
+  rpm_key:
+    state: present
+    key: "{{ item }}"
+  become: yes
+  with_items: "{{ repositories.key_urls }}"
+
+- name: Add repositories
+  zypper_repository:
+    repo: "{{ item.value }}"
+    name: "{{ item.key }}"
+    state: present
+    autorefresh: yes
+    auto_import_keys: yes
+    overwrite_multiple: yes
+  with_dict: "{{ repositories.opensuse }}"
+  become: yes
+
+# - name: Add repositories from .repo file
+#   zypper_repository:
+#     repo: "{{ item }}"
+#     state: present
+#     autorefresh: yes
+#     auto_import_keys: yes
+#   with_items: "{{ repositories.opensuse_repo }}"
+#   become: yes
+
+- name: Install common packages
+  zypper: 
+    name: "{{ packages.common }}"
+    state: latest 
+  become: yes
+
+
+- name: Install opensuse packages
+  zypper: 
+    name: "{{ packages.opensuse }}"
+    state: latest 
+  become: yes

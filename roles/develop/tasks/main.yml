@@ -1,0 +1,13 @@
+---
+- include_tasks: ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+
+- include_tasks: opensuse.yml
+  when: ansible_distribution == "openSUSE Leap"
+
+- include_tasks: macos.yml
+  when: ansible_os_family == "Darwin"
+
+- include_tasks: pip.yml
+
+- include_tasks: docker.yml

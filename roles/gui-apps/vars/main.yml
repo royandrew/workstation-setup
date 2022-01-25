@@ -1,0 +1,30 @@
+repositories:
+  ubuntu:
+    mysql_workbench: deb http://repo.mysql.com/apt/ubuntu/ focal mysql-tools
+  opensuse:
+    google_chrome: http://dl.google.com/linux/chrome/rpm/stable/x86_64
+    vscode: https://packages.microsoft.com/yumrepos/vscode
+  opensuse_repo:
+    - https://repo.vivaldi.com/archive/vivaldi-suse.repo
+  key_urls:
+    - https://dl.google.com/linux/linux_signing_key.pub
+    - https://packages.microsoft.com/keys/microsoft.asc
+    - https://repo.vivaldi.com/archive/linux_signing_key.pub
+gpg_key_servers:
+  mysql:
+    keyserver: hkps://pgp.mit.edu:443
+    key: 5072E1F5
+packages:
+  common:
+    - gnome-keyring
+  opensuse:
+    - mysql-workbench
+  ubuntu:
+    - mysql-workbench-community
+  snap:
+    regular:
+      - mailspring
+      - yubioath-desktop
+    classic:
+      - code
+      - intellij-idea-community

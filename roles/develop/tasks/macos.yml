@@ -1,0 +1,5 @@
+- name: Install packages using homebrew
+  community.general.homebrew:
+    name: "{{ packages.macos }}"
+    state: present
+    update_homebrew: yes

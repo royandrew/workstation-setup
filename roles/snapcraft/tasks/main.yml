@@ -1,0 +1,4 @@
+---
+
+- include_tasks: opensuse.yml
+  when: ansible_distribution == "openSUSE Leap"

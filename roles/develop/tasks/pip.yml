@@ -1,0 +1,6 @@
+- name: Install development related python packages
+  pip: 
+    executable: pip3
+    name: "{{ packages.pip }}"
+    state: latest
+  become: yes

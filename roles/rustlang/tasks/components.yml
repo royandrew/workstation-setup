@@ -1,0 +1,6 @@
+---
+- name: Install components
+  command: "rustup component add {{ item }}"
+  environment:
+    PATH: "{{ rust_user_path }}"
+  with_items: "{{ components }}"

@@ -1,0 +1,76 @@
+source ~/.bash/git-prompt.sh
+PS1='\u@\h:\W$(__git_ps1 " (%s)")\$ '
+
+export APP_NET=app-net
+
+export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))
+
+source ~/.aliases
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+export CLICOLOR=1
+
+loc () {
+	wc -l $(find ./ -name "$1")
+}
+
+mvnToWildfly () {
+        profile="$1"
+        if [ -z "$profile" ]
+        then
+                profile="development"
+        fi
+        extraCommands=""
+        if [ "yes" == "$2" ]
+        then
+            extraCommands=" -Dmaven.test.skip=true"
+        fi
+        mvn -P $profile clean package $extraCommands
+        warFile=`ls target/ |grep ".war"`
+        /opt/wildfly/bin/jboss-cli.sh --connect controller=localhost --user=admin --password="Unlock wildfly" --command="deploy --force target/$warFile"
+        /opt/google/chrome/chrome "http://localhost:8080/${warFile%.war}"
+        notify "Deployment complete"
+}
+
+deployToWildfly () {
+        warFile=`ls target/ |grep ".war"`
+        /opt/wildfly/bin/jboss-cli.sh --connect controller=localhost --user=admin --password="Unlock wildfly" --command="deploy --force target/$warFile"
+        /opt/google/chrome/chrome "http://localhost:8080/${warFile%.war}"
+        notify "Deployment complete"
+}
+
+sha256_verify () {
+        checksum=`openssl sha -sha256 "$1" | cut -d "=" -f 2 | xargs echo`
+        if [ "$checksum" == "$2" ]
+        then
+            echo "Checksum matches"
+        else
+             echo "Actual checksum: $checksum do not match expected checksum $2"
+        fi
+}
+
+sha256_check () {
+        echo "$2 $1" | sha256sum -c;
+}
+
+docker_logs () {
+        docker container logs -f $1;
+}
+
+# Powerline
+if [ -f {{ powerline.bindings.path }} ]; then
+  powerline-daemon -q
+  POWERLINE_BASH_CONTINUATION=1
+  POWERLINE_BASH_SELECT=1
+  source {{ powerline.bindings.path }}
+fi
