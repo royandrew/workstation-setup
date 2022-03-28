@@ -1,11 +1,19 @@
 ---
-- name: Add apt keys from keyservers
+# - name: Add apt keys from keyservers
+#   become: yes
+#   apt_key: 
+#     keyserver: "{{ item.value.keyserver }}" 
+#     id: "{{ item.value.key }}"
+#     state: present
+#   with_dict: "{{ gpg_key_servers }}"
+
+- name: Add an Apt signing key, will not download if present
   become: yes
-  apt_key: 
-    keyserver: "{{ item.value.keyserver }}" 
-    id: "{{ item.value.key }}"
+  apt_key:
+    id: "{{ item.value.id }}"
+    url: "{{ item.value.key_url }}"
     state: present
-  with_dict: "{{ gpg_key_servers }}"
+  with_dict: "{{ gpg_keys }}"
 
 - name: Add apt repositories
   become: yes

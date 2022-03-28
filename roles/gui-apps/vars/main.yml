@@ -4,16 +4,22 @@ repositories:
   opensuse:
     google_chrome: http://dl.google.com/linux/chrome/rpm/stable/x86_64
     vscode: https://packages.microsoft.com/yumrepos/vscode
-  opensuse_repo:
-    - https://repo.vivaldi.com/archive/vivaldi-suse.repo
   key_urls:
     - https://dl.google.com/linux/linux_signing_key.pub
     - https://packages.microsoft.com/keys/microsoft.asc
-    - https://repo.vivaldi.com/archive/linux_signing_key.pub
+    - https://downloads.1password.com/linux/keys/1password.asc
+    - https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
 gpg_key_servers:
   mysql:
     keyserver: hkps://pgp.mit.edu:443
     key: 5072E1F5
+gpg_keys:
+  one_password:
+    id: 3FEF9748469ADBE15DA7CA80AC2D62742012EA22
+    key_url: https://downloads.1password.com/linux/keys/1password.asc
+  mysql:
+    id: 3a79bd29
+    key_url: https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
 packages:
   common:
     - gnome-keyring
