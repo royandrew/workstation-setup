@@ -5,6 +5,10 @@ export APP_NET=app-net
 
 export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))
 
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+export PATH=$MAVEN_HOME/bin:$PATH
+
 source ~/.aliases
 
 # don't put duplicate lines or lines starting with space in the history.
