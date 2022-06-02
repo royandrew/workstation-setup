@@ -50,6 +50,13 @@
       owner: "{{ ansible_user_id }}"
       mode: u=rw,g=r,o=r
 
+  - name: Copy powerline themes
+    copy:
+      src: themes
+      dest: "{{ home_dir }}/{{ powerline.config.path | dirname }}"
+      owner: "{{ ansible_user_id }}"
+      mode: u=rw,g=r,o=r
+
   # - name: Install Starship.rs
   #   snap:
   #     name: "starship"
