@@ -44,7 +44,8 @@ packages:
     - maven
     - docker
     - docker-compose
-    - maven
     - git
     - docker-credential-helper
     - 1password
+    - sbt
+    - gnu-tar

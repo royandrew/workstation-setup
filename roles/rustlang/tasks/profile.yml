@@ -1,9 +1,14 @@
 ---
+- name: Create profile.d directory
+  file:
+    path: /etc/profile.d/
+    state: directory
+    recurse: yes
+  become: true
+
 - name: add rust utils to path
   template:
     src: rust.sh.j2
     dest: /etc/profile.d/rust.sh
-    owner: root
-    group: root
     mode: 0644
   become: true

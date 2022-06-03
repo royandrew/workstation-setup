@@ -7,7 +7,7 @@ export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))
 
 export M2_HOME=/opt/maven
 export MAVEN_HOME=/opt/maven
-export PATH=$MAVEN_HOME/bin:$PATH
+export PATH="$MAVEN_HOME/bin:/opt/homebrew/bin:$PATH"
 
 source ~/.aliases
 
@@ -26,31 +26,6 @@ export CLICOLOR=1
 
 loc () {
 	wc -l $(find ./ -name "$1")
-}
-
-mvnToWildfly () {
-        profile="$1"
-        if [ -z "$profile" ]
-        then
-                profile="development"
-        fi
-        extraCommands=""
-        if [ "yes" == "$2" ]
-        then
-            extraCommands=" -Dmaven.test.skip=true"
-        fi
-        mvn -P $profile clean package $extraCommands
-        warFile=`ls target/ |grep ".war"`
-        /opt/wildfly/bin/jboss-cli.sh --connect controller=localhost --user=admin --password="Unlock wildfly" --command="deploy --force target/$warFile"
-        /opt/google/chrome/chrome "http://localhost:8080/${warFile%.war}"
-        notify "Deployment complete"
-}
-
-deployToWildfly () {
-        warFile=`ls target/ |grep ".war"`
-        /opt/wildfly/bin/jboss-cli.sh --connect controller=localhost --user=admin --password="Unlock wildfly" --command="deploy --force target/$warFile"
-        /opt/google/chrome/chrome "http://localhost:8080/${warFile%.war}"
-        notify "Deployment complete"
 }
 
 sha256_verify () {

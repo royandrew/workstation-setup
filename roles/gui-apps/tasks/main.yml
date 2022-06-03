@@ -7,3 +7,4 @@
     when: ansible_distribution == "openSUSE Leap"
 
   - include_tasks: snap_apps.yml
+    when: ansible_os_family != "Darwin"
