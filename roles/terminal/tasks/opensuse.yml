@@ -1,5 +1,0 @@
-- name: Install powerline
-  zypper: 
-    name: powerline
-    state: latest
-  become: yes
