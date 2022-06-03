@@ -1,9 +1,0 @@
-alias rsync_dir="rsync -avP --exclude '.DS_Store' --omit-dir-times"
-
-# Amazon webservice related aliases
-alias aws_ssh="ssh -i ~/Documents/aws_server.pem"
-alias aws_connect="ssh -i ~/Documents/aws_server.pem ubuntu@aws.codinghell.co.uk"
-alias maargateway_ssh="ssh -i ~/Documents/maargateway.pem"
-alias maargateway_connect="ssh -i ~/Documents/maargateway.pem ubuntu@bastion.maargateway.com"
-
-alias mount_nas="sudo mount -t cifs -o uid=cyto,credentials=/home/cyto/.smbcredentials,rw"
