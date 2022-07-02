@@ -1,19 +1,19 @@
 - name: Download latest maven
   get_url:
-    url: https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.zip
+    url: https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.zip
     dest: /tmp
     mode: '0644'
-    checksum: sha512:f9f838b4adaf23db0204a6cafa52bf1125bd2d649fd676843fd05e82866b596ec19c4f3de60d5e3ff17f10a63d96c141311ff9bc2bfa816eade7a5cbff2bd925
+    checksum: sha512:f92dbd90060c5fd422349f844ea904a0918c9c9392f3277543ce2bfb0aab941950bb4174d9b6e2ea84cd48d2940111b83ffcc2e3acf5a5b2004277105fd22be9
 
 - name: Unzip maven
   ansible.builtin.unarchive:
-    src: /tmp/apache-maven-3.8.5-bin.zip
+    src: /tmp/apache-maven-3.8.6-bin.zip
     dest: /opt
   become: yes
 
 - name: Create a sym link to maven
   file:
-    src: /opt/apache-maven-3.8.5
+    src: /opt/apache-maven-3.8.6
     state: link
     dest: /opt/maven
   become: yes
