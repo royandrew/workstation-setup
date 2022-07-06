@@ -3,6 +3,7 @@ repositories:
     docker: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable"
     sbt: deb https://repo.scala-sbt.org/scalasbt/debian all main
     terraform: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ansible_distribution_release}} main"
+    github_cli: "deb https://cli.github.com/packages {{ansible_distribution_release}} main"
   opensuse:
 gpg_key_urls:
   docker: 
@@ -15,6 +16,9 @@ gpg_key_servers:
   sbt: 
     keyserver: hkps://keyserver.ubuntu.com:443
     key: 2EE0EA64E40A89B84B2DF73499E82A75642AC823
+  github_cli:
+    keyserver: hkps://keyserver.ubuntu.com:443
+    key: C99B11DEB97541F0
 packages:
   ubuntu:
     - openjdk-11-jdk
@@ -27,6 +31,7 @@ packages:
     - terraform
     - mysql-client-core-8.0
     - docker-compose
+    - gh
   pip:
     - semver
     - awscli
