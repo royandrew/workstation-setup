@@ -4,13 +4,19 @@ repositories:
     sbt: deb https://repo.scala-sbt.org/scalasbt/debian all main
     terraform: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ansible_distribution_release}} main"
     github_cli: "deb https://cli.github.com/packages {{ansible_distribution_release}} main"
+    corretto: "deb https://apt.corretto.aws stable main"
   opensuse:
+    corretto: "https://yum.corretto.aws/corretto.repo"
+    github_cli: "https://cli.github.com/packages/rpm/gh-cli.repo"
 gpg_key_urls:
   docker: 
     url: https://download.docker.com/linux/ubuntu/gpg
     id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
   terraform:
     url: https://apt.releases.hashicorp.com/gpg
+    id: null
+  corretto:
+    url: https://apt.corretto.aws/corretto.key
     id: null
 gpg_key_servers:
   sbt: 
@@ -32,6 +38,7 @@ packages:
     - mysql-client-core-8.0
     - docker-compose
     - gh
+    - java-17-amazon-corretto-jdk
   pip:
     - semver
     - awscli
@@ -43,6 +50,8 @@ packages:
     - password-store
     - maven
     - python3-docker-compose
+    - java-17-amazon-corretto-jdk
+    - gh
   macos:
     - oracle-jdk
     - httpie
