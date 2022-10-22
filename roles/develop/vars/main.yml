@@ -18,13 +18,13 @@ gpg_key_urls:
   corretto:
     url: https://apt.corretto.aws/corretto.key
     id: null
+  github_cli:
+    url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+    id: null
 gpg_key_servers:
   sbt: 
     keyserver: hkps://keyserver.ubuntu.com:443
     key: 2EE0EA64E40A89B84B2DF73499E82A75642AC823
-  github_cli:
-    keyserver: hkps://keyserver.ubuntu.com:443
-    key: C99B11DEB97541F0
 packages:
   ubuntu:
     - openjdk-11-jdk
