@@ -42,6 +42,12 @@ packages:
     - docker-compose
     - gh
     - java-17-amazon-corretto-jdk
+    - scdaemon
+    - gnupg2
+    - gnupg-agent
+    - pcscd
+    - hopenpgp-tools 
+    - yubikey-personalization
   pip:
     - semver
     - awscli
