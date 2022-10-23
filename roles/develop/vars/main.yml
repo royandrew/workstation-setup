@@ -44,7 +44,6 @@ packages:
     - awscli
   opensuse:
     - git
-    - java-11-openjdk-devel
     - docker
     - httpie
     - password-store
