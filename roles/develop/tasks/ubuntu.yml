@@ -6,13 +6,22 @@
     state: present
   with_dict: "{{ gpg_key_servers }}"
 
-- name: Add apt keys
-  become: yes
-  apt_key:
+# - name: Add apt keys
+#   become: yes
+#   apt_key:
+#     url: "{{ item.value.url }}"
+#     id: "{{ item.value.id }}"
+#     state: present
+#   with_dict: "{{ gpg_key_urls }}"
+
+- name: Add apt keys new way.
+  ansible.builtin.get_url:
     url: "{{ item.value.url }}"
-    id: "{{ item.value.id }}"
-    state: present
+    dest: "/etc/apt/trusted.gpg.d/{{ item.key }}-keyring.asc"
+    mode: '0644'
+    force: true
   with_dict: "{{ gpg_key_urls }}"
+  become: yes
 
 - name: Add apt repositories
   become: yes

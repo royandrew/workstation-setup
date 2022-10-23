@@ -1,10 +1,10 @@
 repositories:
   ubuntu:
-    docker: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable"
-    sbt: deb https://repo.scala-sbt.org/scalasbt/debian all main
-    terraform: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ansible_distribution_release}} main"
-    github_cli: "deb https://cli.github.com/packages {{ansible_distribution_release}} main"
-    corretto: "deb https://apt.corretto.aws stable main"
+    docker: "deb [signed-by=/etc/apt/trusted.gpg.d/docker-keyring.asc arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable"
+    sbt: "deb [signed-by=/etc/apt/trusted.gpg.d/sbt-keyring.asc arch=amd64] https://repo.scala-sbt.org/scalasbt/debian all main"
+    terraform: "deb [signed-by=/etc/apt/trusted.gpg.d/terraform-keyring.asc arch=amd64] https://apt.releases.hashicorp.com {{ansible_distribution_release}} main"
+    github_cli: "deb [signed-by=/etc/apt/trusted.gpg.d/github_cli-keyring.gpg arch=amd64] https://cli.github.com/packages stable main"
+    corretto: "deb [signed-by=/etc/apt/trusted.gpg.d/corretto-keyring.asc] https://apt.corretto.aws stable main"
   opensuse:
     corretto: "https://yum.corretto.aws/corretto.repo"
     github_cli: "https://cli.github.com/packages/rpm/gh-cli.repo"
@@ -18,8 +18,11 @@ gpg_key_urls:
   corretto:
     url: https://apt.corretto.aws/corretto.key
     id: null
-  github_cli:
-    url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+  # github_cli:
+  #   url: https://cli.github.com/packages/githubcli-archive-keyring.gpg # Key is in binary.
+  #   id: null
+  sbt:
+    url: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823
     id: null
 gpg_key_servers:
   sbt: 
