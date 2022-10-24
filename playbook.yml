@@ -9,8 +9,6 @@
     - role: snapcraft
     - role: develop
     - role: terminal
-      vars:
-        install_powerline: install_powerline 
     - role: terraform
     - role: git
     - role: gui-apps
