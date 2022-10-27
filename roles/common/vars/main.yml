@@ -1,0 +1,25 @@
+packages:
+  ubuntu:
+    - apt-transport-https
+    - aptitude
+    - ca-certificates
+    - curl
+    - software-properties-common
+    - python3-pip
+    - virtualenv
+    - python3-setuptools
+    - wget
+    - cifs-utils
+    - scdaemon
+    - gnupg2
+    - gnupg-agent
+    - pcscd
+    - hopenpgp-tools 
+    - yubikey-personalization
+  macos:
+    - gnupg
+    - yubikey-personalization
+    - hopenpgp-tools
+    - ykman
+    - pinentry-mac
+    - wget

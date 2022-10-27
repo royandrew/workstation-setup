@@ -1,2 +1,3 @@
 ---
 home_dir: "{{ lookup('env', 'HOME')}}"
+gpg_key_id: "0xEC10B5A46C18C9D3"

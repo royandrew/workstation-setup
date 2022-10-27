@@ -1,20 +1,6 @@
-- name: Install packages
+- name: Install development related packages
   apt: 
-    name: "{{packages}}"
+    name: "{{ packages.ubuntu }}"
     state: latest
     update_cache: yes
-  vars:
-    packages:
-      - apt-transport-https
-      - aptitude
-      - ca-certificates
-      - curl
-      - gnupg-agent
-      - software-properties-common
-      - python3-pip
-      - virtualenv
-      - python3-setuptools
-      - wget
-      - cifs-utils
-    
   become: yes

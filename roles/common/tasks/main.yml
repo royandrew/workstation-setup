@@ -12,3 +12,6 @@
   openssh_keypair:
     path: "{{ home_dir }}/.ssh/id_rsa"
   register: default_openssh_keypair
+
+- name: Import GPG public key
+  shell: "gpg --batch --pinentry-mode loopback --import {{ role_path }}/files/my-secure-public-key.asc"

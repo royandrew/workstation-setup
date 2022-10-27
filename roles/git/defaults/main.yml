@@ -3,4 +3,5 @@ git:
   user:
     name: Roy Andrew
     email: hello@royandrew.dev
+    signing_key: "{{ gpg_key_id }}"
   editor: vim

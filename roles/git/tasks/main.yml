@@ -12,8 +12,14 @@
     scope: global
     value: "{{ git.user.name }}"
 
-- name: Configure git user emaail 
+- name: Configure git user email 
   git_config:
     name: user.email
     scope: global
     value: "{{ git.user.email }}"
+
+- name: Configure git user signing key
+  git_config:
+    name: user.signingkey
+    scope: global
+    value: "{{ git.user.signing_key }}"
