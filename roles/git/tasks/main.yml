@@ -23,3 +23,9 @@
     name: user.signingkey
     scope: global
     value: "{{ git.user.signing_key }}"
+
+- name: Configure commit auto signing
+  git_config:
+    name: commit.gpgsign
+    scope: global
+    value: "true"
