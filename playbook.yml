@@ -3,7 +3,7 @@
   vars:
     terraform_version: 1.1.0
     install_gui_apps: no
-    install_powerline: true
+    terminal_prompt: powerline
   roles:
     - role: common
     - role: snapcraft
