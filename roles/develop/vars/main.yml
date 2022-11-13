@@ -71,3 +71,4 @@ packages:
     - 1password
     - sbt
     - gnu-tar
+    - pinentry-mac
