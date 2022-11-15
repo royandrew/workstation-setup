@@ -35,3 +35,8 @@
     state: latest
     update_cache: yes
   become: yes
+
+- name: Install packages from url
+  apt: 
+    deb: "{{ item.value.url }}"
+  with_dict: "{{ packages.debs }}"

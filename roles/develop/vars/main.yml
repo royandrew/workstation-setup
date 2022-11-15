@@ -29,6 +29,9 @@ gpg_key_servers:
     keyserver: hkps://keyserver.ubuntu.com:443
     key: 2EE0EA64E40A89B84B2DF73499E82A75642AC823
 packages:
+  debs:
+    scala_cli:
+      url: https://github.com/Virtuslab/scala-cli/releases/latest/download/scala-cli-x86_64-pc-linux.deb
   ubuntu:
     - openjdk-11-jdk
     - docker-ce
@@ -72,6 +75,7 @@ packages:
     - sbt
     - gnu-tar
     - pinentry-mac
+    - Virtuslab/scala-cli/scala-cli
 
 versions:
   maven: '3.8.6'
