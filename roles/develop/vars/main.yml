@@ -72,3 +72,6 @@ packages:
     - sbt
     - gnu-tar
     - pinentry-mac
+
+versions:
+  maven: '3.8.6'

@@ -16,6 +16,7 @@ packages:
     - pcscd
     - hopenpgp-tools 
     - yubikey-personalization
+    - unzip
   macos:
     - gnupg
     - yubikey-personalization
