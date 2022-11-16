@@ -40,3 +40,4 @@
   apt: 
     deb: "{{ item.value.url }}"
   with_dict: "{{ packages.debs }}"
+  become: yes
