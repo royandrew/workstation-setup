@@ -1,19 +1,19 @@
 - name: Download latest maven
   get_url:
-    url: "https://dlcdn.apache.org/maven/maven-3/{{ versions.maven }}/binaries/apache-maven-{{ versions.maven }}-bin.zip"
+    url: "https://dlcdn.apache.org/maven/maven-3/{{ maven.version }}/binaries/apache-maven-{{ maven.version }}-bin.zip"
     dest: /tmp
     mode: '0644'
-    checksum: sha512:f92dbd90060c5fd422349f844ea904a0918c9c9392f3277543ce2bfb0aab941950bb4174d9b6e2ea84cd48d2940111b83ffcc2e3acf5a5b2004277105fd22be9
+    checksum: "sha512:{{ maven.shasum }}"
 
 - name: Unzip maven
   ansible.builtin.unarchive:
-    src: /tmp/apache-maven-{{ versions.maven }}-bin.zip
+    src: /tmp/apache-maven-{{ maven.version }}-bin.zip
     dest: /opt
   become: yes
 
 - name: Create a sym link to maven
   file:
-    src: /opt/apache-maven-{{ versions.maven }}
+    src: /opt/apache-maven-{{ maven.version }}
     state: link
     dest: /opt/maven
   become: yes

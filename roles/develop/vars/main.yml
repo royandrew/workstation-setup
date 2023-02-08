@@ -33,7 +33,6 @@ packages:
     scala_cli:
       url: https://github.com/Virtuslab/scala-cli/releases/latest/download/scala-cli-x86_64-pc-linux.deb
   ubuntu:
-    - openjdk-11-jdk
     - docker-ce
     - docker-ce-cli
     - sbt
@@ -45,6 +44,7 @@ packages:
     - docker-compose
     - gh
     - java-17-amazon-corretto-jdk
+    - java-19-amazon-corretto-jdk
     - scdaemon
     - gnupg2
     - gnupg-agent
@@ -78,4 +78,8 @@ packages:
     - Virtuslab/scala-cli/scala-cli
 
 versions:
-  maven: '3.8.6'
+  maven: '3.9.0'
+
+maven:
+  version: '3.9.0'
+  shasum: '564fe44bfa9c7ad3e2703cbbac59d43a11fa39e4e68875d3d1584d0a0b7b77a1352da246b875c4c15d11ceb6b4dd9a0ce7dd7a48695725dce594f34325c9c605'
