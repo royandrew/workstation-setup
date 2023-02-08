@@ -38,7 +38,6 @@ packages:
     - sbt
     - httpie
     - pass
-    - maven
     - terraform
     - mysql-client-core-8.0
     - docker-compose
