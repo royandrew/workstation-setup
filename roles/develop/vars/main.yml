@@ -81,8 +81,8 @@ packages:
     - Virtuslab/scala-cli/scala-cli
 
 versions:
-  maven: '3.9.1'
+  maven: '3.9.3'
 
 maven:
-  version: '3.9.1'
-  shasum: '4ae5a0d17f9e6cbe57640c481f426a9184dfb451c2bb7cc7db324da095f616a14e7c482a79240e5286e241d8cd2805ea1cd9c95e38954101c2fa4088baad9a1a'
+  version: '3.9.3'
+  shasum: 'fba80f4bb0429052d558959b1bfbc99984f8cb8ff59a53baae0a0874b71a2601e2805c5e557b7b59d81716a0b4b35d1b2eeccb566c40b23cc575331a4984ef6c'
