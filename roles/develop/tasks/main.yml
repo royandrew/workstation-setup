@@ -15,3 +15,10 @@
 
 - include_tasks: maven.yml
   when: ansible_os_family != "Darwin"
+
+- name: Install packages using brew
+  community.general.homebrew:
+    name: "{{ packages.homebrew }}"
+    state: latest
+    update_homebrew: yes
+  ignore_errors: yes

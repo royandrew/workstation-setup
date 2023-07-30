@@ -47,7 +47,7 @@ packages:
     - docker-compose
     - gh
     - java-17-amazon-corretto-jdk
-    - java-19-amazon-corretto-jdk
+    - java-20-amazon-corretto-jdk
     - scdaemon
     - gnupg2
     - gnupg-agent
@@ -67,7 +67,6 @@ packages:
     - java-17-amazon-corretto-jdk
     - gh
   macos:
-    - oracle-jdk
     - httpie
     - maven
     - docker
@@ -79,6 +78,9 @@ packages:
     - gnu-tar
     - pinentry-mac
     - Virtuslab/scala-cli/scala-cli
+    - corretto
+  homebrew:    
+    - mongosh
 
 versions:
   maven: '3.9.3'
