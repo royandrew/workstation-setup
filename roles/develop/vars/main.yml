@@ -68,7 +68,6 @@ packages:
     - gh
   macos:
     - httpie
-    - maven
     - docker
     - docker-compose
     - git
@@ -81,10 +80,6 @@ packages:
     - corretto
   homebrew:    
     - mongosh
-
-versions:
-  maven: '3.9.3'
-
-maven:
-  version: '3.9.3'
-  shasum: 'fba80f4bb0429052d558959b1bfbc99984f8cb8ff59a53baae0a0874b71a2601e2805c5e557b7b59d81716a0b4b35d1b2eeccb566c40b23cc575331a4984ef6c'
+    - maven
+    - golang
+    - neovim

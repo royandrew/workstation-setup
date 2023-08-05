@@ -13,8 +13,8 @@
 - include_tasks: docker.yml
   when: not ansible_os_family == "Darwin"
 
-- include_tasks: maven.yml
-  when: ansible_os_family != "Darwin"
+# - include_tasks: maven.yml
+#   when: ansible_os_family != "Darwin"
 
 - name: Install packages using brew
   community.general.homebrew:
