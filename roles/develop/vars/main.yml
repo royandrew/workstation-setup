@@ -6,6 +6,7 @@ repositories:
     github_cli: "deb [signed-by=/etc/apt/trusted.gpg.d/github_cli-keyring.gpg arch=amd64] https://cli.github.com/packages stable main"
     corretto: "deb [signed-by=/etc/apt/trusted.gpg.d/corretto-keyring.asc] https://apt.corretto.aws stable main"
     httpie: "deb [signed-by=/etc/apt/trusted.gpg.d/httpie-keyring.asc] https://packages.httpie.io/deb ./"
+    1password: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/1password-keyring.asc] https://downloads.1password.com/linux/debian/amd64 stable main"
   opensuse:
     corretto: "https://yum.corretto.aws/corretto.repo"
     github_cli: "https://cli.github.com/packages/rpm/gh-cli.repo"
@@ -21,6 +22,9 @@ gpg_key_urls:
     id: null
   httpie:
     url: https://packages.httpie.io/deb/KEY.gpg
+    id: null
+  1password:
+    url: https://downloads.1password.com/linux/keys/1password.asc
     id: null
   # github_cli:
   #   url: https://cli.github.com/packages/githubcli-archive-keyring.gpg # Key is in binary.
@@ -54,6 +58,7 @@ packages:
     - pcscd
     - hopenpgp-tools 
     - yubikey-personalization
+    - 1password-cli
   pip:
     - semver
     - awscli
@@ -72,10 +77,11 @@ packages:
     - docker-compose
     - git
     - docker-credential-helper
-    - 1password
     - sbt
     - gnu-tar
     - pinentry-mac
+    - 1password
+    - 1password-cli
     - Virtuslab/scala-cli/scala-cli
     - corretto
   homebrew:    
