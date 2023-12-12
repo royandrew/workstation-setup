@@ -1,4 +1,12 @@
 ---
+  - name: Load Mac OSX specific variables
+    include_vars: macos.yml
+    when: ansible_os_family == "Darwin"
+
+  - name: Load Linux specific variables
+    include_vars: linux.yml
+    when: ansible_system == "Linux"
+
   - name: fetch rustup installer
     uri:
       url: https://sh.rustup.rs
@@ -14,11 +22,11 @@
       stdin: "{{ rustup_installer_response.content }}"
     when: not (rustup_is_installed | bool)
 
-  - name: set default toolchain
-    command: "rustup default stable-x86_64-unknown-linux-gnu"
-    environment:
-      PATH: "{{ rust_user_path }}"
-    when: not (rustup_is_installed | bool)    
+  # - name: set default toolchain
+  #   command: "rustup default {{platform}}"
+  #   environment:
+  #     PATH: "{{ rust_user_path }}"
+  #   when: not (rustup_is_installed | bool)    
 
   # install bash completions
   - name: create bash completion path
@@ -43,5 +51,5 @@
       owner: "{{ ansible_user_id }}"
 
   - name: install bash completions
-    command: rsync -a "{{ home_dir }}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/etc/bash_completion.d/" "{{ home_dir }}/.local/share/bash-completion/completions/"
+    command: rsync -a "{{ home_dir }}/.rustup/toolchains/{{platform}}/etc/bash_completion.d/" "{{ home_dir }}/.local/share/bash-completion/completions/"
     changed_when: false
