@@ -8,3 +8,6 @@
 
   - include_tasks: snap_apps.yml
     when: ansible_os_family != "Darwin"
+
+  - include_tasks: macos.yml
+    when: ansible_os_family == "Darwin"

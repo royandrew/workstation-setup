@@ -31,3 +31,5 @@ packages:
     classic:
       - code
       - intellij-idea-community
+  macos:
+    - obsidian
