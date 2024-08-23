@@ -29,3 +29,9 @@
     name: commit.gpgsign
     scope: global
     value: "true"
+
+- name: Configure rebase autosquash
+  git_config:
+    name: rebase.autosquash
+    scope: global
+    value: "true"
