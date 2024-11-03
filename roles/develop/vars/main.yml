@@ -3,13 +3,13 @@ repositories:
     docker: "deb [signed-by=/etc/apt/trusted.gpg.d/docker-keyring.asc arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable"
     sbt: "deb [signed-by=/etc/apt/trusted.gpg.d/sbt-keyring.asc arch=amd64] https://repo.scala-sbt.org/scalasbt/debian all main"
     terraform: "deb [signed-by=/etc/apt/trusted.gpg.d/terraform-keyring.asc arch=amd64] https://apt.releases.hashicorp.com {{ansible_distribution_release}} main"
-    github_cli: "deb [signed-by=/etc/apt/trusted.gpg.d/github_cli-keyring.gpg arch=amd64] https://cli.github.com/packages stable main"
+    # github_cli: "deb [signed-by=/etc/apt/trusted.gpg.d/github_cli-keyring.asc arch=amd64] https://cli.github.com/packages stable main"
     corretto: "deb [signed-by=/etc/apt/trusted.gpg.d/corretto-keyring.asc] https://apt.corretto.aws stable main"
     httpie: "deb [signed-by=/etc/apt/trusted.gpg.d/httpie-keyring.asc] https://packages.httpie.io/deb ./"
     1password: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/1password-keyring.asc] https://downloads.1password.com/linux/debian/amd64 stable main"
   opensuse:
     corretto: "https://yum.corretto.aws/corretto.repo"
-    github_cli: "https://cli.github.com/packages/rpm/gh-cli.repo"
+    # github_cli: "https://cli.github.com/packages/rpm/gh-cli.repo"
 gpg_key_urls:
   docker: 
     url: https://download.docker.com/linux/ubuntu/gpg
@@ -36,6 +36,9 @@ gpg_key_servers:
   sbt: 
     keyserver: hkps://keyserver.ubuntu.com:443
     key: 2EE0EA64E40A89B84B2DF73499E82A75642AC823
+  github-cli:
+    keyserver: hkps://keyserver.ubuntu.com:443
+    key: 23F3D4EA75716059
 packages:
   debs:
     scala_cli:
@@ -85,11 +88,13 @@ packages:
     - 1password-cli
     - Virtuslab/scala-cli/scala-cli
     - corretto
+    - gh
   homebrew:    
     - mongosh
     - maven
     - golang
     - neovim
     - jenv
+    - gh
     # - openjdk@11
     # - openjdk@21
