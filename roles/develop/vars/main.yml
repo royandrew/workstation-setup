@@ -62,9 +62,7 @@ packages:
     - hopenpgp-tools 
     - yubikey-personalization
     - 1password-cli
-  pip:
-    - semver
-    - awscli
+    - python3-semver
   opensuse:
     - git
     - docker
@@ -96,5 +94,6 @@ packages:
     - neovim
     - jenv
     - gh
+    - awscli
     # - openjdk@11
     # - openjdk@21
