@@ -53,8 +53,6 @@ packages:
     - mysql-client-core-8.0
     - docker-compose
     - gh
-    - java-11-amazon-corretto-jdk
-    - java-21-amazon-corretto-jdk
     - scdaemon
     - gnupg2
     - gnupg-agent
@@ -70,8 +68,6 @@ packages:
     - password-store
     - maven
     - python3-docker-compose
-    - java-11-amazon-corretto-jdk
-    - java-21-amazon-corretto-jdk
     - gh
   macos:
     - httpie
@@ -95,5 +91,5 @@ packages:
     - jenv
     - gh
     - awscli
-    # - openjdk@11
-    # - openjdk@21
+    - openjdk@11
+    - openjdk@21
