@@ -33,3 +33,4 @@ packages:
       - intellij-idea-community
   macos:
     - obsidian
+    - 1password

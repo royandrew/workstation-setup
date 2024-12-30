@@ -78,11 +78,12 @@ packages:
     - sbt
     - gnu-tar
     - pinentry-mac
-    - 1password
-    - 1password-cli
     - Virtuslab/scala-cli/scala-cli
     - corretto
     - gh
+    - golang
+    - golangci-lint
+    - 1password-cli
   homebrew:    
     - mongosh
     - maven
@@ -93,3 +94,5 @@ packages:
     - awscli
     - openjdk@11
     - openjdk@21
+    - golang
+    - golangci-lint
