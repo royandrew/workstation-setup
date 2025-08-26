@@ -96,3 +96,4 @@ packages:
     - openjdk@21
     - golang
     - golangci-lint
+    - uv
