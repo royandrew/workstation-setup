@@ -97,3 +97,4 @@ packages:
     - golang
     - golangci-lint
     - uv
+    - codex
