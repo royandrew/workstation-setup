@@ -1,0 +1,23 @@
+---
+git:
+  user:
+    name: Roy Andrew
+    email: hello@royandrew.com
+  commit_signing:
+    key: "{{ git_signing.sign_key }}"
+    format: "{{ git_signing.format }}"
+  editor: nvim
+  aliases:
+    cf: "commit --fixup"
+    cfa: "commit -a --fixup"
+    ph: "push origin HEAD"
+    pfh: "push -f origin HEAD"
+    cph: "!f() { git commit -am \"$1\" && git push origin HEAD; }; f"
+    cpfh: "!f() { git commit -am \"$1\" && git push -f origin HEAD; }; f"
+    unstage: "reset HEAD --"
+    bdel: "!f() { git branch -d $(git branch | grep \"$1\" | xargs); }; f"
+    bfdel: "!f() { git branch -D $(git branch | grep \"$1\" | xargs); }; f"
+    new-wkt: "!f() { git worktree add -b \"$1\" ../\"$1\"; }; f"
+    rbim: rebase -i main
+    lch: "!f() { git log -n 1 --oneline | cut -d ' ' -f 1; }; f"
+    fixup: "!f() { git cfa $(git lch); git rebase -i main; }; f"
