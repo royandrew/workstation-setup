@@ -2,7 +2,7 @@
 git:
   user:
     name: Roy Andrew
-    email: hello@royandrew.com
+    email: hello@royandrew.dev
   commit_signing:
     key: "{{ git_signing.sign_key }}"
     format: "{{ git_signing.format }}"
