@@ -22,8 +22,8 @@
   git_config:
     name: user.signingkey
     scope: global
-    value: "{{ git.user.signing_key }}"
-    
+    value: "{{ git.commit_signing.key }}"
+
 - name: Configure git user signing format
   git_config:
     name: gpg.format
@@ -50,7 +50,7 @@
 
 - name: Configure git aliases
   git_config:
-    name: "alias.{{ item.name }}"
+    name: "alias.{{ item.key }}"
     scope: global
     value: "{{ item.value }}"
-  with_items: "{{ git.alias }}"
+  loop: "{{ git.aliases | dict2items }}"

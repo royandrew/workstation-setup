@@ -1,3 +1,6 @@
 ---
 home_dir: "{{ lookup('env', 'HOME')}}"
 gpg_key_id: "0xEC10B5A46C18C9D3"
+git_signing:
+    sign_key: "0xEC10B5A46C18C9D3"
+    format: openpgp
