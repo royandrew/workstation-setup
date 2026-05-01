@@ -1,6 +1,6 @@
 repositories:
   ubuntu:
-    mysql_workbench: deb http://repo.mysql.com/apt/ubuntu/ focal mysql-tools
+    mysql_workbench: deb http://repo.mysql.com/apt/ubuntu/ {{ ansible_distribution_release }} mysql-tools
   opensuse:
     google_chrome: http://dl.google.com/linux/chrome/rpm/stable/x86_64
     vscode: https://packages.microsoft.com/yumrepos/vscode
@@ -8,7 +8,7 @@ repositories:
     - https://dl.google.com/linux/linux_signing_key.pub
     - https://packages.microsoft.com/keys/microsoft.asc
     - https://downloads.1password.com/linux/keys/1password.asc
-    - https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+    - https://repo.mysql.com/RPM-GPG-KEY-mysql-2025
 
 gpg_keys:
   one_password:
@@ -16,7 +16,7 @@ gpg_keys:
     key_url: https://downloads.1password.com/linux/keys/1password.asc
   mysql:
     id: 3a79bd29
-    key_url: https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
+    key_url: https://repo.mysql.com/RPM-GPG-KEY-mysql-2025
 packages:
   common:
     - gnome-keyring
