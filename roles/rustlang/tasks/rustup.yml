@@ -1,11 +1,11 @@
 ---
   - name: Load Mac OSX specific variables
     include_vars: macos.yml
-    when: ansible_os_family == "Darwin"
+    when: ansible_facts['os_family'] == "Darwin"
 
   - name: Load Linux specific variables
     include_vars: linux.yml
-    when: ansible_system == "Linux"
+    when: ansible_facts['system'] == "Linux"
 
   - name: fetch rustup installer
     uri:
@@ -27,7 +27,7 @@
     file:
       path: "{{ home_dir }}/.local/share/bash-completion/completions"
       state: directory
-      owner: "{{ ansible_user_id }}"
+      owner: "{{ ansible_facts['user_id'] }}"
       recurse: true
 
   - name: generate rustup completions
@@ -42,7 +42,7 @@
       content: "{{ rustup_completions.stdout }}"
       dest: "{{ home_dir }}/.local/share/bash-completion/completions/rustup"
       mode: "0644"
-      owner: "{{ ansible_user_id }}"
+      owner: "{{ ansible_facts['user_id'] }}"
 
   - name: install bash completions
     command: rsync -a "{{ home_dir }}/.rustup/toolchains/{{platform}}/etc/bash_completion.d/" "{{ home_dir }}/.local/share/bash-completion/completions/"

@@ -1,8 +1,8 @@
 repositories:
   ubuntu:
-    docker: "deb [signed-by=/etc/apt/trusted.gpg.d/docker-keyring.asc arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable"
+    docker: "deb [signed-by=/etc/apt/trusted.gpg.d/docker-keyring.asc arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_facts['distribution_release']}} stable"
     sbt: "deb [signed-by=/etc/apt/trusted.gpg.d/sbt-keyring.asc arch=amd64] https://repo.scala-sbt.org/scalasbt/debian all main"
-    terraform: "deb [signed-by=/etc/apt/trusted.gpg.d/terraform-keyring.asc arch=amd64] https://apt.releases.hashicorp.com {{ansible_distribution_release}} main"
+    terraform: "deb [signed-by=/etc/apt/trusted.gpg.d/terraform-keyring.asc arch=amd64] https://apt.releases.hashicorp.com {{ansible_facts['distribution_release']}} main"
     # github_cli: "deb [signed-by=/etc/apt/trusted.gpg.d/github_cli-keyring.asc arch=amd64] https://cli.github.com/packages stable main"
     corretto: "deb [signed-by=/etc/apt/trusted.gpg.d/corretto-keyring.asc] https://apt.corretto.aws stable main"
     httpie: "deb [signed-by=/etc/apt/trusted.gpg.d/httpie-keyring.asc] https://packages.httpie.io/deb ./"

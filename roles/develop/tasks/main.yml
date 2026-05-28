@@ -1,15 +1,15 @@
 ---
 - include_tasks: ubuntu.yml
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_facts['distribution'] == "Ubuntu"
 
 - include_tasks: opensuse.yml
-  when: ansible_distribution == "openSUSE Leap"
+  when: ansible_facts['distribution'] == "openSUSE Leap"
 
 - include_tasks: macos.yml
-  when: ansible_os_family == "Darwin"
+  when: ansible_facts['os_family'] == "Darwin"
 
 - include_tasks: docker.yml
-  when: not ansible_os_family == "Darwin"
+  when: not ansible_facts['os_family'] == "Darwin"
 
 - name: Install packages using brew
   community.general.homebrew:

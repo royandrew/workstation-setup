@@ -1,7 +1,7 @@
 ---
 
-- name: Load "{{ ansible_system }} OS family variables.
-  include_vars: "{{ ansible_system }}.yml"
+- name: Load "{{ ansible_facts['system'] }} OS family variables.
+  include_vars: "{{ ansible_facts['system'] }}.yml"
 
 - name: Ensure required packages are available.
   package:
