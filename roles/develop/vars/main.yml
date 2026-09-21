@@ -7,6 +7,7 @@ repositories:
     corretto: "deb [signed-by=/etc/apt/trusted.gpg.d/corretto-keyring.asc] https://apt.corretto.aws stable main"
     httpie: "deb [signed-by=/etc/apt/trusted.gpg.d/httpie-keyring.asc] https://packages.httpie.io/deb ./"
     1password: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/1password-keyring.asc] https://downloads.1password.com/linux/debian/amd64 stable main"
+    # brave: "deb [signed-by=/etc/apt/trusted.gpg.d/brave-keyring.asc arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"
   opensuse:
     corretto: "https://yum.corretto.aws/corretto.repo"
     # github_cli: "https://cli.github.com/packages/rpm/gh-cli.repo"
@@ -25,6 +26,9 @@ gpg_key_urls:
     id: null
   1password:
     url: https://downloads.1password.com/linux/keys/1password.asc
+    id: null
+  brave:
+    url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
     id: null
   # github_cli:
   #   url: https://cli.github.com/packages/githubcli-archive-keyring.gpg # Key is in binary.
