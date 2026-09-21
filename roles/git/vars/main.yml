@@ -20,4 +20,4 @@ git:
     new-wkt: "!f() { git worktree add -b \"$1\" ../\"$1\"; }; f"
     rbim: rebase -i main
     lch: "!f() { git log -n 1 --oneline | cut -d ' ' -f 1; }; f"
-    fixup: "!f() { git cfa $(git lch); git rebase -i main; }; f"
+    fixup: "!f() { git cfa $(git lch); git rebase -i \"${1:-main}\"; }; f"
