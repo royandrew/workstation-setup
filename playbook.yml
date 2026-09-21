@@ -5,6 +5,18 @@
     terraform_version: 1.1.0
     install_gui_apps: no
     terminal_prompt: starship
+  pre_tasks:
+    - name: Load development repository settings before updating apt
+      ansible.builtin.include_vars:
+        file: roles/develop/vars/main.yml
+        name: develop_repository_config
+      when: ansible_facts['distribution'] == "Ubuntu"
+
+    - name: Refresh signing keys before any role updates apt
+      ansible.builtin.import_tasks: roles/develop/tasks/apt-keys.yml
+      vars:
+        gpg_key_urls: "{{ develop_repository_config.gpg_key_urls }}"
+      when: ansible_facts['distribution'] == "Ubuntu"
   roles:
     - role: common
     - role: snapcraft

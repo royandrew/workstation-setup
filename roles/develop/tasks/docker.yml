@@ -12,7 +12,7 @@
       state: started
       enabled: yes
     become: yes
-    when: '"microsoft" not in ansible_facts['kernel']'
+    when: "'microsoft' not in ansible_facts['kernel']"
 
   - name: Download docker-credential-pass
     unarchive:

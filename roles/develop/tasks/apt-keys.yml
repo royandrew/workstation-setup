@@ -1,0 +1,9 @@
+- name: Refresh apt signing keys from their published URLs
+  ansible.builtin.get_url:
+    url: "{{ item.value.url }}"
+    dest: "/etc/apt/trusted.gpg.d/{{ item.key }}-keyring.asc"
+    mode: '0644'
+    # Fetch again so upstream key rotations replace existing key files.
+    force: true
+  with_dict: "{{ gpg_key_urls }}"
+  become: yes
