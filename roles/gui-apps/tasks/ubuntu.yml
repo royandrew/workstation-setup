@@ -8,6 +8,12 @@
   with_dict: "{{ gpg_keys }}"
   become: yes
 
+- name: Remove old MySQL Workbench apt repository
+  become: yes
+  apt_repository:
+    repo: deb http://repo.mysql.com/apt/ubuntu/ focal mysql-tools
+    state: absent
+
 - name: Add apt repositories
   become: yes
   apt_repository: 
