@@ -1,0 +1,20 @@
+---
+
+- name: Install snapd
+  ansible.builtin.apt:
+    name: snapd
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: Enable and start the snapd socket
+  ansible.builtin.systemd:
+    name: snapd.socket
+    enabled: yes
+    state: started
+  become: yes
+
+- name: Wait for the snapd socket
+  ansible.builtin.wait_for:
+    path: /run/snapd.socket
+    timeout: 30

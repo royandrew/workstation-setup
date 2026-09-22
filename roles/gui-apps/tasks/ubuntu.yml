@@ -8,11 +8,15 @@
   with_dict: "{{ gpg_keys }}"
   become: yes
 
-- name: Remove old MySQL Workbench apt repository
+- name: Remove old MySQL Workbench apt repositories
   become: yes
   apt_repository:
-    repo: deb http://repo.mysql.com/apt/ubuntu/ focal mysql-tools
+    repo: "{{ item }}"
     state: absent
+  loop:
+    - deb http://repo.mysql.com/apt/ubuntu/ focal mysql-tools
+    - "deb http://repo.mysql.com/apt/ubuntu/ {{ ansible_distribution_release }} mysql-tools"
+    - "deb [signed-by=/etc/apt/trusted.gpg.d/mysql-keyring.asc] https://repo.mysql.com/apt/ubuntu/ {{ ansible_distribution_release }} mysql-tools"
 
 - name: Add apt repositories
   become: yes
@@ -32,10 +36,4 @@
     name: "{{ packages.ubuntu }}"
     state: latest
     update_cache: yes
-  become: yes
-
-- name: mysql-workbench | Install MySql Workbench
-  apt: 
-    name: mysql-workbench-community 
-    state: latest
   become: yes

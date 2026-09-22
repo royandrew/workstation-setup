@@ -1,4 +1,9 @@
 ---
 
+- include_tasks: ubuntu.yml
+  when:
+    - ansible_facts['distribution'] == "Ubuntu"
+    - ansible_facts['service_mgr'] == "systemd"
+
 - include_tasks: opensuse.yml
   when: ansible_facts['distribution'] == "openSUSE Leap"
