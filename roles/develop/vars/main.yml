@@ -80,6 +80,7 @@ packages:
     - gh
     - golang
     - golangci-lint
+    - sqlc
     - 1password-cli
   homebrew:    
     - mongosh
@@ -93,5 +94,6 @@ packages:
     - openjdk@21
     - golang
     - golangci-lint
+    - sqlc
     - uv
     - codex
