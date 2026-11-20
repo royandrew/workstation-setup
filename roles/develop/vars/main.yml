@@ -49,7 +49,6 @@ packages:
     - terraform
     - mysql-client-core-8.0
     - docker-compose
-    - gh
     - scdaemon
     - gnupg2
     - gnupg-agent
@@ -77,11 +76,6 @@ packages:
     - pinentry-mac
     - Virtuslab/scala-cli/scala-cli
     - corretto
-    - gh
-    - golang
-    - golangci-lint
-    - sqlc
-    - 1password-cli
   homebrew:    
     - mongosh
     - maven
@@ -97,3 +91,4 @@ packages:
     - sqlc
     - uv
     - codex
+    - 1password-cli
