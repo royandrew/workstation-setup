@@ -1,6 +1,7 @@
-- name: Install packages using homebrew
-  community.general.homebrew:
-    name: "{{ packages.macos }}"
+---
+- name: Install GUI apps using Homebrew casks
+  community.general.homebrew_cask:
+    name: "{{ gui_app_packages.macos }}"
     state: latest
     update_homebrew: yes
   ignore_errors: yes

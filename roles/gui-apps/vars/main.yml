@@ -1,3 +1,4 @@
+---
 repositories:
   ubuntu:
     mysql_workbench: "deb [signed-by=/etc/apt/trusted.gpg.d/mysql-keyring.asc] https://repo.mysql.com/apt/ubuntu/ {{ ansible_distribution_release }} mysql-8.0"
@@ -17,7 +18,7 @@ gpg_keys:
   mysql:
     id: 3a79bd29
     key_url: https://repo.mysql.com/RPM-GPG-KEY-mysql-2025
-packages:
+gui_app_packages:
   common:
     - gnome-keyring
   opensuse:

@@ -18,13 +18,13 @@
 
 - name: Install common packages
   zypper: 
-    name: "{{ packages.common }}"
+    name: "{{ gui_app_packages.common }}"
     state: latest 
   become: yes
 
 
 - name: Install opensuse packages
   zypper: 
-    name: "{{ packages.opensuse }}"
+    name: "{{ gui_app_packages.opensuse }}"
     state: latest 
   become: yes

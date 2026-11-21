@@ -26,14 +26,14 @@
 
 - name: Install common packages
   apt: 
-    name: "{{ packages.common }}"
+    name: "{{ gui_app_packages.common }}"
     state: latest
     update_cache: yes
   become: yes
 
 - name: Install ubuntu specific packages
   apt: 
-    name: "{{ packages.ubuntu }}"
+    name: "{{ gui_app_packages.ubuntu }}"
     state: latest
     update_cache: yes
   become: yes
